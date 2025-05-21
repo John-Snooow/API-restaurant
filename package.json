@@ -4,7 +4,7 @@
   "description": "API para gerenciar pedidos de mesas de um restaurantes",
   "main": "index.js",
   "scripts": {
-    
+    "dev": "tsx watch src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,14 @@
   "bugs": {
     "url": "https://github.com/John-Snooow/API-restaurant/issues"
   },
-  "homepage": "https://github.com/John-Snooow/API-restaurant#readme"
+  "homepage": "https://github.com/John-Snooow/API-restaurant#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.12",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4"
+  }
 }
