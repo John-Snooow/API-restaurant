@@ -1,0 +1,19 @@
+{
+  "name": "api-restaurant",
+  "version": "1.0.0",
+  "description": "API para gerenciar pedidos de mesas de um restaurantes",
+  "main": "index.js",
+  "scripts": {
+    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/John-Snooow/API-restaurant.git"
+  },
+  "author": "John Frank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/John-Snooow/API-restaurant/issues"
+  },
+  "homepage": "https://github.com/John-Snooow/API-restaurant#readme"
+}
