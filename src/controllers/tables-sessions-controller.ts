@@ -35,7 +35,7 @@ class TablesSessionsController {
   async index(request: Request, response: Response, next: NextFunction) {
     try {
       const sessions = await knex<TablesSessionsRepository>("tables_sessions")
-        .orderBy("opened_at");
+        .orderBy("closed_at");
 
       return response.json(sessions);
     } catch (error) {
@@ -50,6 +50,22 @@ class TablesSessionsController {
         .transform((value) => Number(value))
         .refine((value) => !isNaN(value), { message: "Id must be a number" })
         .parse(request.params.id);
+
+      const session = await knex<TablesSessionsRepository>("tables_sessions")
+        .where({ id })
+        .first();
+
+      if (!session) {
+        throw new AppError("Session table not found");
+      }
+
+      if (session.closed_at) {
+        throw new AppError("This Session table is already closed");
+      }
+
+      await knex<TablesSessionsRepository>("tables_sessions")
+        .update({ closed_at: knex.fn.now() })
+        .where({ id }); 
 
       return response.json();
     } catch (error) {
